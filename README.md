@@ -56,7 +56,7 @@ Follow these steps to get the project running locally:
 
 2.  **Clone the repository:**
     ```bash
-    git clone <https://github.com/raisenbk/oop-book-collection-app.git>
+    git clone https://github.com/raisenbk/oop-book-collection-app.git
     cd oop-book-collection-app
     ```
 
