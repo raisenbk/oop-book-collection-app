@@ -56,10 +56,9 @@ Follow these steps to get the project running locally:
 
 2.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
-    cd koleksi-buku-oop
+    git clone <https://github.com/raisenbk/oop-book-collection-app.git>
+    cd oop-book-collection-app
     ```
-    *(Replace `<your-repository-url>` with the actual URL of your GitHub repository)*
 
 3.  **Install dependencies:**
     Using npm:
