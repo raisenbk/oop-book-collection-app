@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OOP Concepts with Next.js: Simple Publication Collection Manager
 
-## Getting Started
+This is a mini-project demonstrating Object-Oriented Programming (OOP) concepts using JavaScript within a Next.js application. It implements a simple collection manager for publications like books and magazines.
 
-First, run the development server:
+The primary goal of this project is to illustrate how core OOP principles – Encapsulation, Abstraction, Inheritance, and Polymorphism – can be applied in a modern JavaScript and React environment.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## OOP Concepts Demonstrated
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This project explicitly showcases the following OOP principles:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1.  **Encapsulation:**
+    * Data (properties) and methods that operate on that data are bundled together within classes (`PublicationItem`, `Book`, `Magazine`, `Library`).
+    * Internal state of objects (e.g., the `items` array in the `Library` class) is managed internally and accessed or modified through public methods, hiding the implementation details.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2.  **Abstraction:**
+    * Complex implementation details are hidden behind a simplified interface. For example, users of the `Library` class interact with methods like `addItem()` or `getAllItems()` without needing to know the specifics of how the collection is stored or managed.
+    * The `getDetails()` method on `PublicationItem` provides a common way to get a description, abstracting away the specific type of publication.
 
-## Learn More
+3.  **Inheritance:**
+    * A base class `PublicationItem` is defined with common properties (`id`, `title`) and methods.
+    * `Book` and `Magazine` classes **inherit** from `PublicationItem`, reusing common functionality and extending it with their specific attributes (e.g., `author` and `year` for `Book`; `publisher` and `issueNumber` for `Magazine`).
+    * The `super()` keyword is used in derived class constructors to call the parent class constructor.
 
-To learn more about Next.js, take a look at the following resources:
+4.  **Polymorphism:**
+    * **Method Overriding:** The `getDetails()` method is defined in the `PublicationItem` base class and then overridden in both `Book` and `Magazine` derived classes to provide type-specific details.
+    * **Dynamic Behavior:** When iterating through a collection of `PublicationItem` objects, calling `item.getDetails()` executes the appropriate version of the method based on the actual type of the object (`Book` or `Magazine`). This allows treating objects of different classes in a uniform way through a common interface.
+    * The `Library.addItem(item)` method also demonstrates polymorphism as it can accept any object that is an instance of `PublicationItem` or its subclasses.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure Highlights
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* `src/lib/models.js`: Contains all the JavaScript class definitions (`PublicationItem`, `Book`, `Magazine`, `Library`) demonstrating the OOP structure.
+* `src/app/page.js`: The main Next.js page component that utilizes these classes to manage and display the publication collection. It handles user input, state management (using React Hooks), and renders the UI.
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Add new publications (Books or Magazines) to the collection with specific details.
+* View a list of all publications in the collection.
+* Display type-specific details for each publication polymorphically.
+* Remove publications from the collection.
+* Dynamic form changes based on the selected publication type.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tech Stack
+
+* **Next.js (v13+ with App Router)**: React framework for server-side rendering and static site generation.
+* **React (v18+)**: JavaScript library for building user interfaces.
+* **JavaScript (ES6+)**: Core language, utilizing classes for OOP.
+* **CSS**: Minimal inline styling for presentation.
+
+## Setup and Installation
+
+Follow these steps to get the project running locally:
+
+1.  **Prerequisites:**
+    * Node.js (v18.x or later recommended)
+    * npm or yarn
+
+2.  **Clone the repository:**
+    ```bash
+    git clone <your-repository-url>
+    cd koleksi-buku-oop
+    ```
+    *(Replace `<your-repository-url>` with the actual URL of your GitHub repository)*
+
+3.  **Install dependencies:**
+    Using npm:
+    ```bash
+    npm install
+    ```
+    Or using yarn:
+    ```bash
+    yarn install
+    ```
+
+## Running the Application
+
+1.  **Start the development server:**
+    Using npm:
+    ```bash
+    npm run dev
+    ```
+    Or using yarn:
+    ```bash
+    yarn dev
+    ```
+
+2.  **Open your browser:**
+    Navigate to `http://localhost:3000`. You should see the application running.
+
+## Further Exploration (Optional)
+
+This project serves as a basic example. It could be extended to include:
+
+* More complex class hierarchies.
+* Persistent storage (e.g., using `localStorage`, a backend API, or a database).
+* Editing existing items.
+* Advanced search and filtering capabilities.
+* More sophisticated UI/UX with a CSS framework or library.
+* Unit tests for the OOP classes.
+
+---
+
+Feel free to explore the code and experiment with the OOP concepts demonstrated!
